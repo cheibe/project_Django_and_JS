@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 {% load static %}
+<!DOCTYPE html>
 
 <html lang="pt-BR">
 
@@ -12,7 +12,11 @@
 </head>
 
 <body>
-{% block container %}{% endblock container %}
+  <section class="container">
+    
+    {% block container %}{% endblock container %}
+  
+  </section>
   
   <script src="{% static "/global/js/main.js" %}"></script>
 </body>
