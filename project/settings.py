@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app_dashboard',
     'app_listaDeTarefas',
+    'app_calculadora',
     'bootstrap5',
 ]
 
@@ -60,7 +61,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / 'base_templates'
+            BASE_DIR / 'base_templates',
+
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -124,7 +126,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS: list[str] = [
-    BASE_DIR / 'base_static'
+    BASE_DIR / 'base_static',
+    BASE_DIR / 'app_listaDeTarefas',
 ]
 STATIC_ROOT = BASE_DIR / 'static'
 

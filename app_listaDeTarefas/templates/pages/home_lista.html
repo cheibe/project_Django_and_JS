@@ -1,8 +1,15 @@
 {% extends "global/index.html" %}
 {% load static %}
 
-{% block container %}
 
-<h1>teste</h1>
+{% block container %}
+<link rel="stylesheet" href="{% static "listaTarefa/css/style_tarefa.css" %}">
+<script defer src="{% static "listaTarefa/js/main_tarefa.js" %}"></script>
+<h1>Lista de tarefas</h1>
+    <p>
+      <input type="text" class="input-tarefa">
+      <button class="btn-lista-tarefa">Adicionar</button>
+    </p>
+    <ul class="tarefas"></ul>
 
 {% endblock container %}
