@@ -1,0 +1,25 @@
+@import '~bootstrap/scss/functions';
+@import '~admin-lte/build/scss/bootstrap-variables';
+@import '~admin-lte/build/scss/variables';
+@import '~admin-lte/build/scss/variables-alt';
+@import '~admin-lte/build/scss/mixins';
+
+@import '~bootstrap/scss/bootstrap';
+
+@import '~admin-lte/build/scss/parts/core';
+@import '~admin-lte/build/scss/parts/components';
+@import '~admin-lte/build/scss/parts/extra-components';
+@import '~admin-lte/build/scss/parts/pages';
+@import '~admin-lte/build/scss/parts/plugins';
+@import '~admin-lte/build/scss/parts/miscellaneous';
+
+.button-lista-tarefa {
+    border: none;
+    background: var(--primary-color);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    height: 50px;
+    cursor: pointer;
+    margin-top: 30px;
+  }

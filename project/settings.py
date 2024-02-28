@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'app_listaDeTarefas',
     'app_calculadora',
     'bootstrap5',
+    'compressor',
 ]
 
 MIDDLEWARE = [
@@ -145,3 +146,21 @@ MESSAGE_TAGS = {
     constants.SUCCESS: 'message-success',
     constants.WARNING: 'message-warning',
 }
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+]
+
+COMPRESS_PRECOMPILERS = (
+    ('text/scss', 'sass {infile} {outfile}'),
+)
+
+COMPRESS_ENABLED = True
+COMPRESS_OFFLINE = True
+LIBSASS_OUTPUT_STYLE = 'compressed'
+
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'django_libsass.SassCompiler'),
+)

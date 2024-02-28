@@ -1,0 +1,19 @@
+{% extends "global/index.html" %}
+{% load static %}
+
+
+
+{% block container %}
+{% load compress %}
+{% compress css %}
+<link rel="stylesheet" href="listaTarefa/css/style.css" type="text/css" charset="utf-8">
+{% endcompress %}
+<script defer src="{% static "listaTarefa/js/main_tarefa.js" %}"></script>
+<h1>Lista de tarefas</h1>
+    <p>
+      <input type="text" class="input-tarefa">
+      <button class="btn-lista-tarefa">Adicionar</button>
+    </p>
+    <ul class="tarefas"></ul>
+
+{% endblock container %}

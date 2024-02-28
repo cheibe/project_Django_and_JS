@@ -2,8 +2,12 @@
 {% load static %}
 
 
+
 {% block container %}
-<link rel="stylesheet" href="{% static "listaTarefa/css/style_tarefa.css" %}">
+{% load compress %}
+{% compress css %}
+<link rel="stylesheet" href="/static/listaTarefa/css/style.css" type="text/css" charset="utf-8">
+{% endcompress %}
 <script defer src="{% static "listaTarefa/js/main_tarefa.js" %}"></script>
 <h1>Lista de tarefas</h1>
     <p>
