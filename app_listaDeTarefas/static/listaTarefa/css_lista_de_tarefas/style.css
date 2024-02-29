@@ -9,10 +9,10 @@
   outline: 0;
 }
 
-body {
+.bg {
   margin: 0;
   padding: 0;
-  background: var(--primary-color);
+  background: rgb(17, 86, 102);
   font-family: "Open sans", sans-serif;
   font-size: 1.3em;
   line-height: 1.5em;
@@ -40,17 +40,6 @@ form input {
 
 form input:focus {
   outline: 1px solid var(--primary-color);
-}
-
-.button-lista-tarefa {
-  border: none;
-  background: var(--primary-color);
-  color: #fff;
-  font-size: 18px;
-  font-weight: 700;
-  height: 50px;
-  cursor: pointer;
-  margin-top: 30px;
 }
 
 form button:hover {

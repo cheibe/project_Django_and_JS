@@ -6,14 +6,13 @@
 {% block container %}
 {% load compress %}
 {% compress css %}
-<link rel="stylesheet" href="listaTarefa/css/style.css" type="text/css" charset="utf-8">
+<link rel="stylesheet" href="/static/listaTarefa/css_lista_de_tarefas/style.css" type="text/css" charset="utf-8">
 {% endcompress %}
 <script defer src="{% static "listaTarefa/js/main_tarefa.js" %}"></script>
-<h1>Lista de tarefas</h1>
+  <h1 class>Lista de tarefas</h1>
     <p>
-      <input type="text" class="input-tarefa">
-      <button class="btn-lista-tarefa">Adicionar</button>
+      <input type="text" id="input-tarefa" class="form-control">
+      <button id="btn-tarefa" class="btn btn-primary">Adicionar</button>
     </p>
     <ul class="tarefas"></ul>
-
 {% endblock container %}
