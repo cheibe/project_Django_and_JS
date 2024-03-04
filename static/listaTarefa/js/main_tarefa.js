@@ -1,9 +1,10 @@
 const inputTarefa = document.getElementById('input-tarefa');
 const btnTarefa = document.getElementById('btn-tarefa');
-const tarefas = document.querySelector('.tarefas');
+const tarefas = document.getElementById('list-tarefa');
 
 function criaLi(){
     const li = document.createElement('li')
+    li.setAttribute('class', 'list-group-item')
     return li
 }
 
@@ -25,37 +26,37 @@ function criaBotaoApagar(li) {
     li.innerText += ' ';
     const botaoApagar = document.createElement('button');
     botaoApagar.innerText = 'Apagar';
-    botaoApagar.setAttribute('class', 'btn btn-primary');
+    botaoApagar.setAttribute('class', 'btn btn-primary apagar');
     li.appendChild(botaoApagar);
 }
 
-function salvarTarefas() {
-    const liTarefas = tarefas.querySelectorAll('li');
-    const listaDeTarefas = [];
+// function salvarTarefas() {
+//     const liTarefas = tarefas.querySelectorAll('li');
+//     const listaDeTarefas = [];
 
-    for (let tarefa of liTarefas){
-        let tarefaTexto = tarefa.innerText;
-        tarefaTexto = tarefaTexto.replace('Apagar', '').trim();
-        listaDeTarefas.push(tarefaTexto);
-    }
+//     for (let tarefa of liTarefas){
+//         let tarefaTexto = tarefa.innerText;
+//         tarefaTexto = tarefaTexto.replace('Apagar', '').trim();
+//         listaDeTarefas.push(tarefaTexto);
+//     }
 
-    const tarefasJSON = JSON.stringify(listaDeTarefas);
-    localStorage.setItem('tarefas', tarefasJSON);
-}
+//     const tarefasJSON = JSON.stringify(listaDeTarefas);
+//     localStorage.setItem('tarefas', tarefasJSON);
+// }
 
-function adicionaTarefasSalvas() {
-    const tarefas = localStorage.getItem('tarefas');
-    let listaDeTarefas = JSON.parse(tarefas);
-    if (!listaDeTarefas) {
-        listaDeTarefas = []
-    }
+// function adicionaTarefasSalvas() {
+//     const tarefas = localStorage.getItem('tarefas');
+//     let listaDeTarefas = JSON.parse(tarefas);
+//     if (!listaDeTarefas) {
+//         listaDeTarefas = []
+//     }
     
-    for (let tarefa of listaDeTarefas) {
-        criaTarefa(tarefa);
-    }
+//     for (let tarefa of listaDeTarefas) {
+//         criaTarefa(tarefa);
+//     }
     
-}
-adicionaTarefasSalvas();
+// }
+// adicionaTarefasSalvas();
 
 inputTarefa.addEventListener('keypress', function(e){
     if (e.keyCOde === 13) {

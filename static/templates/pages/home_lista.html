@@ -9,10 +9,35 @@
 <link rel="stylesheet" href="/static/listaTarefa/css_lista_de_tarefas/style.css" type="text/css" charset="utf-8">
 {% endcompress %}
 <script defer src="{% static "listaTarefa/js/main_tarefa.js" %}"></script>
-  <h1 class>Lista de tarefas</h1>
-    <p>
-      <input type="text" id="input-tarefa" class="form-control">
-      <button id="btn-tarefa" class="btn btn-primary">Adicionar</button>
-    </p>
-    <ul class="tarefas"></ul>
+<h1 class>Lista de tarefas</h1>
+<form method="POST">
+  {% csrf_token %}    
+  {% for fields in form %}
+  <div class="form-group">
+    {{ form }}
+    <button id="btn-tarefa" class="btn btn-primary">Adicionar</button>
+  </div>
+  {% for tarefa in tarefas %}
+    <ul class="list-group list-group-flush" id="list-tarefa">
+      {{tarefa.tarefa}}
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+        <label class="form-check-label" for="inlineRadio1">A fazer</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+        <label class="form-check-label" for="inlineRadio2">Concluido</label>
+      </div>
+      <form action="{% url "ListaDeTarefa:delete_tarefa" tarefa.id %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Apagar">
+      </form>
+      {% comment %} <button class="btn btn-primary apagar">Apagar</button> {% endcomment %}
+    </ul>
+  {% endfor %}
+    {% comment %} <input type="text" class="form-control" id="input-tarefa"> {% endcomment %}
+       
+    
+  {% endfor %}   
+</form>
 {% endblock container %}

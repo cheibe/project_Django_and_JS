@@ -9,10 +9,35 @@
 <link rel="stylesheet" href="/static/listaTarefa/css_lista_de_tarefas/style.css" type="text/css" charset="utf-8">
 {% endcompress %}
 <script defer src="{% static "listaTarefa/js/main_tarefa.js" %}"></script>
-  <h1 class>Lista de tarefas</h1>
-    <p>
-      <input type="text" class="form-control" id="input-tarefa">
+<h1 class>Lista de tarefas</h1>
+<form method="POST">
+  {% csrf_token %}    
+  {% for fields in form %}
+    <div class="form-group">
+      {{ form }}
       <button id="btn-tarefa" class="btn btn-primary">Adicionar</button>
-    </p>
-    <ul class="list-group" id="list-tarefa"></ul>
+    </div>
+  {% endfor %}   
+</form>
+  <div style="text-align: left">
+    {% for tarefa in tarefas %}
+      <ul class="list-group list-group-flush" id="list-tarefa">
+        <li class="list-group-item">
+          <div>
+            <h3>{{tarefa.tarefa}}</h3>
+            <div class="form-check form-switch" style="align: left">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Concuido</label>
+            </div>
+            <form action="{% url "ListaDeTarefa:delete_tarefa" tarefa.id %}" method="post">
+              {% csrf_token %}
+              <input type="submit" value="Apagar">
+            </form>
+          </div>
+        </li>
+        
+      </ul>
+    {% endfor %}
+  </div>
+
 {% endblock container %}
