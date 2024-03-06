@@ -14,30 +14,40 @@
   {% csrf_token %}    
   {% for fields in form %}
     <div class="form-group">
-      {{ form }}
+      {{ form.tarefa }}
       <button id="btn-tarefa" class="btn btn-primary">Adicionar</button>
     </div>
   {% endfor %}   
 </form>
-  <div style="text-align: left">
-    {% for tarefa in tarefas %}
-      <ul class="list-group list-group-flush" id="list-tarefa">
-        <li class="list-group-item">
-          <div>
-            <h3>{{tarefa.tarefa}}</h3>
-            <div class="form-check form-switch" style="align: left">
-              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-              <label class="form-check-label" for="flexSwitchCheckDefault">Concuido</label>
-            </div>
-            <form action="{% url "ListaDeTarefa:delete_tarefa" tarefa.id %}" method="post">
-              {% csrf_token %}
-              <input type="submit" value="Apagar">
-            </form>
-          </div>
-        </li>
-        
-      </ul>
-    {% endfor %}
-  </div>
+<div style="text-align: left">
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Tarefa</th>
+          <th scope="col">Status</th>
+          <th scope="col">APAGAR</th>
+        </tr>
+      </thead>
+      {% for tarefa in tarefas %}
+        <tbody>
+            <tr>
+              <td><p style="font-size: 1.3rem;">{{tarefa.tarefa}}</p></td>
+              <td>
+                <select name="status" id="id_status">
+                  <option value="fazer">A fazer</option>
+                  <option value="concluido">Concluido</option>
+                </select>
+              </td>
+              <td>
+                <form action="{% url "ListaDeTarefa:delete_tarefa" tarefa.id %}" method="post">
+                  {% csrf_token %}
+                  <input type="submit" value="X" style="height: auto; left: auto;">
+                </form>
+              </td>
+            </tr>
+        </tbody>
+      {% endfor %}
+  </table>  
+</div>
 
 {% endblock container %}
