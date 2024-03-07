@@ -10,15 +10,6 @@
 {% endcompress %}
 <script defer src="{% static "listaTarefa/js/main_tarefa.js" %}"></script>
 <h1 class>Lista de tarefas</h1>
-<form method="POST">
-  {% csrf_token %}    
-  {% for fields in form %}
-    <div class="form-group">
-      {{ form.tarefa }}
-      <button id="btn-tarefa" class="btn btn-primary">Adicionar</button>
-    </div>
-  {% endfor %}   
-</form>
 <div class="table-responsive" style="text-align: left">
   <table class="table table-bordered">
       <thead>
@@ -27,6 +18,7 @@
           <th scope="col">Status</th>
           <th scope="col">Editar</th>
           <th scope="col">Apagar</th>
+          <th scope="col">Salvar</th>
         </tr>
       </thead>
       {% for tarefa in tarefas %}
@@ -37,20 +29,7 @@
               <p style="font-size: 1.3rem;">{{ tarefa.get_status_display }}</p>
             </td>
             <td>
-              <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                  Opções
-                </button>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="{% url "ListaDeTarefa:editar_lista" tarefa.id %}">Editar</a>
-                </div>
-            </div>
-            </td>
-            <td>
-              <form action="{% url "ListaDeTarefa:delete_tarefa" tarefa.id %}" method="post">
-                {% csrf_token %}
-                <input class="btn btn-primary" type="submit" value="X" style="height: auto; left: 1.3rem;">
-              </form>
+              <button>SALVAR</button>
             </td>
           </tr>
         </tbody>

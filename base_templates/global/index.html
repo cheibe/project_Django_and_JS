@@ -114,24 +114,21 @@
         </nav>
       </div>
     </aside>
-    <div class="content-wrapper">
-      <div class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-sm-6">
-              <section class="container">
-    
-                {% block container %}{% endblock container %}
+    <div class="content-wrapper" style="aling: center;">
+      <div class="content-header" style="aling: center;">
+        <div class="container-fluid" style="aling: center;">
+          <div class="row mb-2" style="aling: center;">
+            <div class="col-sm-6" style="aling: center;">
               
-              </section>
             </div>
           </div>
         </div>
       </div>
       <div class="content">
         <div class="container-fluid">
-  
-          
+          <section class="container">
+            {% block container %}{% endblock container %}
+          </section>
         </div>
       </div>
     </div>

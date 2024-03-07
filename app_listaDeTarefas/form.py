@@ -7,3 +7,11 @@ class ListadeTarefaForm(forms.ModelForm):
         fields = [
             'tarefa',
         ]
+
+class EditListadeTarefaForm(forms.ModelForm):
+    class Meta:
+        model = ListadeTareda
+        fields = [
+            'tarefa',
+            'status',
+        ]
